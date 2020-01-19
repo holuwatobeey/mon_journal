@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+
 class EntryResource extends JsonResource
 {
     /**
@@ -26,5 +27,11 @@ class EntryResource extends JsonResource
             'user' => $this->user,
         ];
 
+    }
+    public function with($request){
+        return[
+            'version' => "1.0.0",
+            'author' =>"Mikkycody",
+        ];
     }
 }

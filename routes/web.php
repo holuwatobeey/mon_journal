@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/', 'EntryController@home');
+Route::resource('/entries', 'EntryController');
+

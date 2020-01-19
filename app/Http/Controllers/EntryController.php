@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Entry;
+use App\Http\Resources\EntryResource as EntryResource;
 
 class EntryController extends Controller
 {
@@ -11,6 +13,10 @@ class EntryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function home()
+    {
+        return view('vueApp');
+    }
     public function index()
     {
         $entries = Entry::paginate(15);
@@ -33,6 +39,7 @@ class EntryController extends Controller
         ]);
         $entry = new Entry;
         $entry->user_id = $request->user()->id;
+        // $entry->user_id = $request->user_id; 
         $entry->title = $request->title;
         $entry->body = $request->body;
         $entry->save();
